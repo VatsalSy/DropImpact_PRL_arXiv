@@ -1,0 +1,109 @@
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{10}
+
+\bibitem{popinet-basilisk}
+S. Popinet and collaborators, Basilisk {C}: {V}olume of {F}luid method,
+  \url{http://basilisk.fr}, 2013--now.
+
+\bibitem{prosperetti2009computational}
+A. Prosperetti and G. Tryggvason, {\em Computational {Methods} for {Multiphase}
+  {Flow}} (Cambridge university press, ADDRESS, 2009).
+
+\bibitem{tryggvason2011direct}
+G. Tryggvason, R. Scardovelli, and S. Zaleski, {\em {Direct} {Numerical}
+  {Simulations} of {Gas}--{Liquid} {Multiphase} {Flows}} (Cambridge University
+  Press, ADDRESS, 2011).
+
+\bibitem{brackbill1992continuum}
+J.~U. Brackbill, D.~B. Kothe, and C. Zemach, {\em A continuum method for
+  modeling surface tension}, J. Comput. Phys. {\bf 100},  335  (1992).
+
+\bibitem{landau2013course}
+L.~D. Landau and E.~M. Lifshitz, {\em Fluid Mechanics -- Volume 6: Course of
+  Theoretical Physics}, 2 ed. (Elsevier, ADDRESS, 1987).
+
+\bibitem{ramirez2020lifting}
+O. Ram{\'\i}rez-Soto, V. Sanjay, D. Lohse, J.~T. Pham, and D. Vollmer, {\em
+  Lifting a sessile oil drop from a superamphiphobic surface with an impacting
+  one}, Sci. Adv. {\bf 6},  eaba4330  (2020).
+
+\bibitem{sanjay2023drop}
+V. Sanjay, S. Lakshman, P. Chantelot, J.~H. Snoeijer, and D. Lohse, {\em Drop
+  impact on viscous liquid films}, J. Fluid Mech. {\bf 958},  A25  (2023).
+
+\bibitem{alventosa2023inertio}
+L.~F.~L. Alventosa, R. Cimpeanu, and D.~M. Harris, {\em Inertio-capillary
+  rebound of a droplet impacting a fluid bath}, J. Fluid Mech. {\bf 958},  A24
+  (2023).
+
+\bibitem{garcia2024skating}
+P. Garc{\'\i}a-Geijo, G. Riboux, and J. Gordillo, {\em The skating of drops
+  impacting over gas or vapour layers}, J. Fluid Mech. {\bf 980},  A35  (2024).
+
+\bibitem{popinet-basilisk-momentum}
+S. Popinet and collaborators, Basilisk {C}: conservative scheme for momentum
+  advection, \url{http://basilisk.fr/src/navier-stokes/conserving.h},
+  2013--now.
+
+\bibitem{popinet-basilisk-viscosity}
+S. Popinet and collaborators, Basilisk {C}: viscous stress solver library,
+  \url{http://basilisk.fr/src/viscosity.h}, 2013--now.
+
+\bibitem{popinet2018numerical}
+S. Popinet, {\em Numerical models of surface tension}, Annu. Rev. Fluid Mech.
+  {\bf 50},  49  (2018).
+
+\bibitem{basiliskPopinet2}
+S. Popinet and collaborators, Basilisk {C}: surface tension library,
+  \url{http://basilisk.fr/src/tension.h}, 2013--2022.
+
+\bibitem{popinet2009accurate}
+S. Popinet, {\em An accurate adaptive solver for surface-tension-driven
+  interfacial flows}, J. Comput. Phys. {\bf 228},  5838  (2009).
+
+\bibitem{xu2005drop}
+L. Xu, W.~W. Zhang, and S.~R. Nagel, {\em Drop splashing on a dry smooth
+  surface}, Phys. Rev. Lett. {\bf 94},  184505  (2005).
+
+\bibitem{Eggers2010}
+J. Eggers, M.~A. Fontelos, C. Josserand, and S. Zaleski, {\em Drop dynamics
+  after impact on a solid wall: {T}heory and simulations}, Phys. Fluids {\bf
+  22},  062101  (2010).
+
+\bibitem{Driscoll2011}
+M.~M. Driscoll and S.~R. Nagel, {\em Ultrafast interference imaging of air in
+  splashing dynamics}, Phys. Rev. Lett. {\bf 107},  154502  (2011).
+
+\bibitem{riboux2014experiments}
+G. Riboux and J.~M. Gordillo, {\em Experiments of drops impacting a smooth
+  solid surface: {A} model of the critical impact speed for drop splashing},
+  Phys. Rev. Lett. {\bf 113},  024507  (2014).
+
+\bibitem{Josserand2016}
+C. Josserand and S.~T. Thoroddsen, {\em Drop impact on a solid surface}, Annu.
+  Rev. Fluid Mech. {\bf 48},  365  (2016).
+
+\bibitem{sanjayzhang2022prl}
+B. Zhang, V. Sanjay, S. Shi, Y. Zhao, C. Lv, and D. Lohse, {\em Impact forces
+  of water drops falling on superhydrophobic surfaces}, Phys. Rev. Lett. {\bf
+  129},  104501  (2022).
+
+\bibitem{sanjay2024inertia}
+V. Sanjay, B. Zhang, C. Lv, and D. Lohse, {\em The role of viscosity on drop
+  impact forces}, arXiv preprint  (2024).
+
+\bibitem{kolinski-2014-epl}
+J.~M. Kolinski, L. Mahadevan, and S.~M. Rubinstein, {\em Drops can bounce from
+  perfectly hydrophilic surfaces}, Europhys. Lett. {\bf 108},  24001  (2014).
+
+\bibitem{sprittles2024gas}
+J.~E. Sprittles, {\em Gas microfilms in droplet dynamics: When do drops
+  bounce?}, Annu. Rev. Fluid Mech. {\bf 56},  91  (2024).
+
+\bibitem{basiliskVatsal}
+V. Sanjay, Code repository: {Impact} forces of water drops falling on
+  superhydrophobic surfaces,
+  \url{https://github.com/VatsalSy/Impact-forces-of-water-drops-falling-on-superhydrophobic-surfaces.git}
+  (Last accessed: February 4, 2022), 2022.
+
+\end{thebibliography}

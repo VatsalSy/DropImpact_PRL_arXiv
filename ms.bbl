@@ -1,0 +1,251 @@
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{10}
+
+\bibitem{Josserand2016}
+C. Josserand and S.~T. Thoroddsen, {\em Drop impact on a solid surface}, Annu.
+  Rev. Fluid Mech. {\bf 48},  365  (2016).
+
+\bibitem{yarin2006drop}
+A.~L. Yarin, {\em Drop impact dynamics: {S}plashing, {S}preading, {R}eceding,
+  {B}ouncing...}, Annu. Rev. Fluid Mech. {\bf 38},  159  (2006).
+
+\bibitem{Yarin2017}
+A.~L. Yarin, I.~V. Roisman, and C. Tropea, {\em Collision {Phenomena} in
+  {Liquids} and {Solids}} (Cambridge University Press, Cambridge, 2017).
+
+\bibitem{worthington1877xxviii}
+A.~M. Worthington, {\em {XXVIII}. {On} the forms assumed by drops of liquids
+  falling vertically on a horizontal plate}, Proc. R. Soc. London, Ser. A {\bf
+  25},  261  (1876).
+
+\bibitem{lohse2022fundamental}
+D. Lohse, {\em Fundamental fluid dynamics challenges in inkjet printing}, Annu.
+  Rev. Fluid Mech. {\bf 54},  349  (2022).
+
+\bibitem{kim2007spray}
+J. Kim, {\em Spray cooling heat transfer: The state of the art}, Int. J. Heat
+  Fluid Flow {\bf 28},  753  (2007).
+
+\bibitem{smith2018influence}
+F.~R. Smith, C. Nicloux, and D. Brutin, {\em Influence of the impact energy on
+  the pattern of blood drip stains}, Phys. Rev. Fluids {\bf 3},  013601
+  (2018).
+
+\bibitem{bouroubia2021-arfm}
+L. Bourouiba, {\em The Fluid Dynamics of Disease Transmission}, Annu. Rev.
+  Fluid Mech. {\bf 53},  473  (2021).
+
+\bibitem{sanjayzhang2022prl}
+B. Zhang, V. Sanjay, S. Shi, Y. Zhao, C. Lv, and D. Lohse, {\em Impact forces
+  of water drops falling on superhydrophobic surfaces}, Phys. Rev. Lett. {\bf
+  129},  104501  (2022).
+
+\bibitem{laan2014maximum}
+N. Laan, K.~G. de~Bruin, D. Bartolo, C. Josserand, and D. Bonn, {\em Maximum
+  diameter of impacting liquid droplets}, Phys. Rev. Appl. {\bf 2},  044018
+  (2014).
+
+\bibitem{Nearing1986}
+M.~A. Nearing, J.~M. Bradford, and R.~D. Holtz, {\em Measurement of force vs.
+  time relations for waterdrop impact}, Soil Sci. Soc. Am. J. {\bf 50},  1532
+  (1986).
+
+\bibitem{Mitchell2019}
+B.~R. Mitchell, J.~C. Klewicki, Y.~P. Korkolis, and B.~L. Kinsey, {\em The
+  transient force profile of low-speed droplet impact: measurements and model},
+  J. Fluid Mech. {\bf 867},  300  (2019).
+
+\bibitem{cheng2021drop}
+X. Cheng, T.-P. Sun, and L. Gordillo, {\em Drop Impact Dynamics: Impact Force
+  and Stress Distributions}, Annu. Rev. Fluid Mech. {\bf 54},  57  (2021).
+
+\bibitem{chandra1991collision}
+S. Chandra and C.~T. Avedisian, {\em On the collision of a droplet with a solid
+  surface}, Proc. R. Soc. Lond. A {\bf 432},  13  (1991).
+
+\bibitem{sanjay2024inertia}
+V. Sanjay, B. Zhang, C. Lv, and D. Lohse, {\em The role of viscosity on drop
+  impact forces}, arXiv preprint  (2024).
+
+\bibitem{jorgensen2024deformation}
+L. J{\o}rgensen, {\em Deformation of drops at low Reynolds number impact},
+  Phys. Rev. Fluids {\bf 9},  083601  (2024).
+
+\bibitem{madejski1976solidification}
+J. Madejski, {\em Solidification of droplets on a cold surface}, Int. J. Heat
+  Mass Transfer {\bf 19},  1009  (1976).
+
+\bibitem{fedorchenko2005effect}
+A.~I. Fedorchenko, A.~B. Wang, and Y.~H. Wang, {\em Effect of capillary and
+  viscous forces on spreading of a liquid drop impinging on a solid surface},
+  Phys. Fluids {\bf 17},    (2005).
+
+\bibitem{Clanet2004}
+C. Clanet, C. B{\'e}guin, D. Richard, and D. Qu{\'e}r{\'e}, {\em Maximal
+  deformation of an impacting drop}, J. Fluid Mech. {\bf 517},  199  (2004).
+
+\bibitem{bennett1993splat}
+T. Bennett and D. Poulikakos, {\em Splat-quench solidification: estimating the
+  maximum spreading of a droplet impacting a solid surface}, J. Mater. Sci.
+  {\bf 28},  963  (1993).
+
+\bibitem{Eggers2010}
+J. Eggers, M.~A. Fontelos, C. Josserand, and S. Zaleski, {\em Drop dynamics
+  after impact on a solid wall: {T}heory and simulations}, Phys. Fluids {\bf
+  22},  062101  (2010).
+
+\bibitem{villermaux2011drop}
+E. Villermaux and B. Bossa, {\em Drop fragmentation on impact}, J. Fluid Mech.
+  {\bf 668},  412  (2011).
+
+\bibitem{Wildeman2016}
+S. Wildeman, C.~W. Visser, C. Sun, and D. Lohse, {\em On the spreading of
+  impacting drops}, J. Fluid Mech. {\bf 805},  636  (2016).
+
+\bibitem{supplMaterial}
+See Supplemental Material at ({URL} to be inserted by the publisher) for a
+  description of numerical methods, details of the various regimes and
+  transition., 2024.
+
+\bibitem{Note1}
+We note that in singular cases the first impact peak need not be the largest:
+  As our recent studies \cite {sanjayzhang2022prl,sanjay2024inertia} have
+  indicated, under very specific conditions ($Oh \sim \protect \mathcal
+  {O}(10^{-3})$, $We \approx 9$), a second impact peak -- after droplet recoil
+  and connected to the bouncing up of the droplet -- can exceed the first one
+  due to a hydrodynamic singularity. For our considerations here it is not
+  relevant.
+
+\bibitem{popinet-basilisk}
+S. Popinet and collaborators, Basilisk {C}: {V}olume of {F}luid method,
+  \url{http://basilisk.fr}, 2013--now.
+
+\bibitem{vatsal_sanjay_2023_7598181}
+V. Sanjay, Code repository: {Impact} forces of water drops falling on
+  superhydrophobic surfaces, \url{https://doi.org/10.5281/zenodo.7598181},
+  2023.
+
+\bibitem{grossmann2000scaling}
+S. Grossmann and D. Lohse, {\em Scaling in thermal convection: a unifying
+  theory}, J. Fluid Mech. {\bf 407},  27  (2000).
+
+\bibitem{grossmann2001thermal}
+S. Grossmann and D. Lohse, {\em Thermal convection for large Prandtl numbers},
+  Phys. Rev. Lett. {\bf 86},  3316  (2001).
+
+\bibitem{lohse2023ultimate}
+D. Lohse and O. Shishkina, {\em Ultimate turbulent thermal convection}, Phys.
+  Today {\bf 76},  26  (2023).
+
+\bibitem{lohse2024}
+D. Lohse and O. Shishkina, {\em {Ultimate Rayleigh--B\'enard turbulence}}, Rev.
+  Mod. Phys. {\bf 96},  035001  (2024).
+
+\bibitem{sanjay_chantelot_lohse_2023}
+V. Sanjay, P. Chantelot, and D. Lohse, {\em When does an impacting drop stop
+  bouncing?}, J. Fluid Mech. {\bf 958},  A26  (2023).
+
+\bibitem{Richard2002}
+D. Richard, C. Clanet, and D. Qu{\'e}r{\'e}, {\em Contact time of a bouncing
+  drop}, Nature {\bf 417},  811  (2002).
+
+\bibitem{Jha2020}
+A. Jha, P. Chantelot, C. Clanet, and D. Qu{\'e}r{\'e}, {\em Viscous bouncing},
+  Soft Matter {\bf 16},  7270  (2020).
+
+\bibitem{sanjay_lohse_jalaal_2021}
+V. Sanjay, D. Lohse, and M. Jalaal, {\em Bursting bubble in a viscoplastic
+  medium}, J. Fluid Mech. {\bf 922},  A2  (2021).
+
+\bibitem{afkhami2013numerical}
+S. Afkhami and L. Kondic, {\em Numerical simulation of ejected molten metal
+  nanoparticles liquified by laser irradiation: Interplay of geometry and
+  dewetting}, Phys. Rev. Lett. {\bf 111},  034501  (2013).
+
+\bibitem{wagner1932stoss}
+H. Wagner, {\em {\"U}ber {S}to{\ss}-{\,}und {G}leitvorg{\"a}nge an der
+  {O}berfl{\"a}che von {F}l{\"u}ssigkeiten}, Z. Angew. Math. Mech. {\bf 12},
+  193  (1932).
+
+\bibitem{mandre2009precursors}
+S. Mandre, M. Mani, and M.~P. Brenner, {\em Precursors to splashing of liquid
+  droplets on a solid surface}, Phys. Rev. Lett. {\bf 102},  134502  (2009).
+
+\bibitem{hertz1881contact}
+H. Hertz, {\em On the contact of elastic solids}, J. Reine Angew, Math. {\bf
+  92},  156  (1881).
+
+\bibitem{langley2017impact}
+K. Langley, E.~Q. Li, and S.~T. Thoroddsen, {\em Impact of ultra-viscous drops:
+  air-film gliding and extreme wetting}, J. Fluid Mech. {\bf 813},  647
+  (2017).
+
+\bibitem{bilotto2023fluid}
+J. Bilotto, J.~M. Kolinski, B. Lecampion, J. Molinari, G. Subhash, and J.
+  Garcia-Suarez, {\em Fluid-mediated impact of soft solids}, arXiv preprint
+  (2023).
+
+\bibitem{bertin2024similarity}
+V. Bertin, {\em Similarity solutions in elastohydrodynamic bouncing}, J. Fluid
+  Mech. {\bf 986},  A13  (2024).
+
+\bibitem{Philippi2016}
+J. Philippi, P.-Y. Lagr{\'e}e, and A. Antkowiak, {\em Drop impact on a solid
+  surface: short-time self-similarity}, J. Fluid Mech. {\bf 795},  96  (2016).
+
+\bibitem{grossmann2002prandtl}
+S. Grossmann and D. Lohse, {\em {Prandtl} and {Rayleigh} number dependence of
+  the Reynolds number in turbulent thermal convection}, Phys. Rev. E {\bf 66},
+  016305  (2002).
+
+\bibitem{renardy2003pyramidal}
+Y. Renardy, S. Popinet, L. Duchemin, M. Renardy, S. Zaleski, C. Josserand,
+  M.~A. Drumright-Clarke, D. Richard, C. Clanet, and D. Qu{\'e}r{\'e}, {\em
+  Pyramidal and toroidal water drops after impact on a solid surface}, J. Fluid
+  Mech. {\bf 484},  69  (2003).
+
+\bibitem{Biance2006}
+A.-L. Biance, F. Chevy, C. Clanet, G. Lagubeau, and D. Qu{\'e}r{\'e}, {\em On
+  the elasticity of an inertial liquid shock}, J. Fluid Mech. {\bf 554},  47
+  (2006).
+
+\bibitem{Prandtl1905}
+L. Prandtl,  in {\em Verhandlungen des III. Int. Math. Kongr., Heidelberg,
+  1904} (Teubner, Leipzig, 1905), pp.\ 484--491.
+
+\bibitem{Blasius1908}
+H. Blasius, {\em {Grenzschichten in Fl\"ussigkeiten mit kleiner Reibung}}, Z.
+  Math. Phys. {\bf 56},  1  (1908).
+
+\bibitem{Schlichting1979}
+H. Schlichting, {\em Boundary layer theory} (McGraw-Hill, New York, 1979).
+
+\bibitem{prandtl1904}
+L. Prandtl, {\em {\"U}ber Fl{\"u}ssigkeitsbewegung bei sehr kleiner Reibung},
+  Math-Kongr, Heidelberg  484  (1904).
+
+\bibitem{onsager1949statistical}
+L. Onsager, {\em Statistical hydrodynamics}, Il Nuovo Cimento {\bf 6},  279
+  (1949).
+
+\bibitem{dubrulle2019beyond}
+B. Dubrulle, {\em Beyond {Kolmogorov} cascades}, J. Fluid Mech. {\bf 867},  P1
+  (2019).
+
+\bibitem{eggers2018role}
+J. Eggers, {\em Role of singularities in hydrodynamics}, Phys. Rev. Fluids {\bf
+  3},  110503  (2018).
+
+\bibitem{sanjay2022taylor}
+V. Sanjay, U. Sen, P. Kant, and D. Lohse, {\em {Taylor-Culick} retractions and
+  the influence of the surroundings}, J. Fluid Mech. {\bf 948},  A14  (2022).
+
+\bibitem{talukdar2024}
+J. Talukdar, U. Sen, C. Diddens, D. Lohse, and V. Sanjay, {\em Sliding drops on
+  dry \& wet substrates}, {Working paper}  (2024).
+
+\bibitem{kayal2024focusing}
+L. Kayal, V. Sanjay, N. Yewale, A. Kumar, and R. Dasgupta, {\em Focusing of
+  concentric free-surface waves}, arXiv preprint  (2024).
+
+\end{thebibliography}
