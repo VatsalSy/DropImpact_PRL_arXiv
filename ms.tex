@@ -1,0 +1,653 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[preprint,amssymb,superscriptaddress,aps,prl,floatfix]{revtex4-1}
+\usepackage{amsmath}
+\usepackage{graphicx}% Include figure files
+\usepackage{array}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{epstopdf}
+\usepackage{lipsum}
+
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks = true,
+urlcolor = blue,
+citecolor= blue,
+}
+
+% Commands
+
+% better textcircled
+\usepackage{tikz}
+\renewcommand{\textcircled}[1]{%
+  \protect\begin{tikzpicture}[baseline=(char.base)]
+    \protect\node[shape=circle,draw,inner sep=1pt] (char) {\normalfont#1};
+  \protect\end{tikzpicture}%
+}
+
+%
+\newcommand{\Wen}{\mathit{We}}
+\newcommand{\Ren}{\mathit{Re}}
+\newcommand{\Ohn}{\mathit{Oh}}
+
+\usepackage{siunitx}
+\newcommand*\red{\textcolor{red}}
+\newcommand*\blue{\textcolor{blue}}
+\newcommand{\revV}[1]{\textcolor{Rhodamine}{#1}}
+
+
+
+\def\x{{\mbox{\boldmath$x$}}}
+
+\newcommand{\oo}{\color{magenta} \normalfont}
+\newcommand{\bb}{\color{black} \normalfont}
+
+\newcommand{\vs}{\color{orange} \normalfont}
+
+\usepackage[normalem]{ulem}
+\usepackage[textwidth=\dimexpr\textwidth-2cm\relax]{todonotes}
+\makeatletter
+\@mparswitchfalse%
+\makeatother
+\normalmarginpar %for right-handed notes and lines, or
+\newcommand{\vsy}[1]{\todo[color=red, bordercolor=none, textcolor=black]{discuss}\textcolor{orange}{#1}}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Unifying theory of scaling in drop impact:\\ Forces \& maximum spreading diameter}% Force line breaks with \\
+
+\author{Vatsal Sanjay}
+ \email{vatsalsanjay@gmail.com}
+\affiliation{	
+	Physics of Fluids Group, Max Planck Center Twente for Complex Fluid Dynamics, and J. M. Burgers Center for Fluid Dynamics, University of Twente, P.O. Box 217, 7500AE Enschede, Netherlands
+}
+\author{Detlef Lohse}
+\email{d.lohse@utwente.nl}
+\affiliation{	
+	Physics of Fluids Group, Max Planck Center Twente for Complex Fluid Dynamics, and J. M. Burgers Center for Fluid Dynamics, University of Twente, P.O. Box 217, 7500AE Enschede, Netherlands
+}
+\affiliation{
+	Max Planck Institute for Dynamics and Self-Organisation, Am Fassberg 17, 37077 G{\"o}ttingen, Germany
+}
+
+\date{\today}
+
+% ------------------------------------------------------------------
+
+\begin{abstract}
+The dynamics of drop impact on  a rigid surface 
+-- omnipresent in nature and technology -- 
+strongly depends on the droplet's velocity, its size, and 
+its material properties. The main characteristics are the droplet's force exerted on the surface
+and its maximal spreading radius. The crucial question is: How do they depend on the 
+(dimensionless) control parameters, which are the Weber number $We$ (non-dimensionalized kinetic energy) and the Ohnesorge number $Oh$ (dimensionless viscosity)? Here we perform direct numerical simulations
+over the huge parameter range $1\le We \le 10^3$ and $10^{-3}\le Oh \le 10^2$ and in particular develop a unifying theoretical approach, which is inspired by the Grossmann-Lohse theory
+for wall-bounded turbulence [J. Fluid Mech. 407, 27 (2000); PRL 86, 3316 (2001)].
+%in order to account for the found dependences. 
+The key idea is to split the energy dissipation rate into the different phases 
+of the impact process, in which different physical mechanisms  dominate. The theory can
+consistently and quantitatively 
+account for the $We$ and $Oh$ dependences of the maximal impact force and the maximal
+spreading diameter over the huge parameter space.
+It also clarifies why viscous dissipation plays a significant role during impact, even for
+low-viscosity droplets (low $Oh$),  in contrast to what had been assumed in prior theories. 
+	
+\end{abstract}
+
+\maketitle
+
+% ------------------------------------------------------------------
+% describe the drop impact process briefly
+
+Droplet impact on a rigid surface is omnipresent and very relevant in 
+nature and technology \cite{Josserand2016,yarin2006drop,Yarin2017}. 
+Examples are 
+rain  \cite{worthington1877xxviii}, inkjet printing  \cite{lohse2022fundamental}, spray coating \cite{kim2007spray}, criminal forensics \cite{smith2018influence},  
+and respiratory droplets  \cite{bouroubia2021-arfm}, showing 
+a plethora of different phenomena, depending on the droplet's  velocity $V_0$, 
+its diameter $D_0$,
+and its material properties (density $\rho$, dynamic  viscosity $\mu$,  and surface 
+tension $\gamma$). In dimensionless form, these control parameters are 
+commonly (and for Newtonian droplets according to the $\Pi$-theorem 
+completely) 
+expressed 
+as Weber number $We\equiv \rho V_0^2 D_0 /\gamma $ and 
+Ohnesorge number $Oh\equiv \mu / (\rho \gamma D_0 )^{1/2} $; the Reynolds number then follows
+as $Re = \sqrt{We}/Oh$ and so does the so-called impact parameter as $P= We Re^{-2/5}$. 
+The huge range over which the control parameters of the above natural and industrial
+droplet impact events can occur
+-- % please leave like this with space for readabilty, in spite of Sander's allergy against it and in spite of Webster
+at least 5 orders of magnitude in $We$ and 4 order of magnitude in $Oh$
+--
+are visualized in the $We-Oh$ parameter space of
+figure \ref{fig:intro}a. 
+Gravity normally does not play any or hardly any role in  these impact processes and
+in this paper it is assumed to be zero. We moreover assume
+an axisymmetrical impact; for discussions on splashing, 
+which sets in for very large impact velocities and at later
+times during the impact event, 
+we refer to \cite{sanjayzhang2022prl}.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Figure0_v1-eps-converted-to.pdf}
+	\caption{(a) Typical values for $We$ and $Oh$ of drop impact events with relevance in nature and technology.
+ (b) Maximal droplet spreading diameter (compensated by  $Re^{1/5} $ for better visibility) vs the impact parameter $P = We Re^{-2/5}$ from our numerical simulations, for various
+ values of $Oh$ (see legend). Also shown is the empirical fit proposed in
+ ref.\ 
+  \cite{laan2014maximum} (grey line), which  does not work for large 
+ $Oh$ and has limitations for small $P$. 
+ }
+	\label{fig:intro}
+\end{figure}
+
+
+
+At impact, the drop
+encounters a normal reaction force \cite{Nearing1986,Mitchell2019,cheng2021drop}, which transforms its vertical momentum into radial spreading \cite{sanjayzhang2022prl}. During this spreading  phase, inertia drives the droplet outwards  until it reaches its  maximum diameter $D_\text{max} $ \cite{chandra1991collision}, where surface tension and viscosity collectively limit further deformation \cite{sanjay2024inertia}.
+What is of particular relevance for applications 
+are
+this maximal  spreading diameter $D_\text{max}$ and the 
+maximal normal force $F_\text{max}$ 
+which the drop
+exerts on the surface at impact. 
+For the former,  traditionally,
+scaling relations were sought for, such as
+$D_\text{max} /D_0 \sim Re^{1/3}$ \cite{jorgensen2024deformation} or $\sim Re^{1/5}$ \cite{madejski1976solidification,fedorchenko2005effect} for viscous drop impact, $D_\text{max} /D_0 \sim We^{1/4}$ \bb for larger impact velocities 
+\cite{Clanet2004}, 
+or $D_\text{max} /D_0 \sim We^{1/2}$ for very large impact velocities 
+\cite{bennett1993splat,Eggers2010,villermaux2011drop,Wildeman2016}. 
+However, it is clear that none of these scaling relations can hold in 
+the {\it  whole}  parameter space of figure \ref{fig:intro}a. Even empirically modelled  
+transitions between two different 
+scaling laws fail, as shown in figure 
+\ref{fig:intro}b, where we compare our numerical simulations (as detailed below) with
+the popular empirically  modelled smooth transition 
+between two limiting scaling relations \cite{laan2014maximum}
+\begin{equation}
+    \frac{D_{\text{max}}}{D_0} = a_0 \frac{Re^{1/5 } P^{1/2}}{a_1 + P^{1/2}}.
+    \label{laan}
+\end{equation}
+Here $a_0 = 1$ and $a_1 = 1.24 \pm 0.01$ are empirical constants obtained from fitting 
+experimental data \cite{laan2014maximum}. 
+While eq.\ (\ref{laan})  reasonably well describes the data for 
+droplets with small viscosities 
+(small $Oh$) and large impact velocities
+(large $P$), it does so less for small $P$, and not at all for large $Oh$
+(cf.\ fig.\ \ref{fig:intro}b). 
+
+
+
+%The key question is to understand the dependencies $\tilde{F}_{\text{max}}\left(Oh, We\right)$ and $\tilde{D}_{\text{max}}\left(Oh, We\right)$ 
+
+
+%Upon impact, the droplet's kinetic energy transforms into internal kinetic energy, surface energy, and viscous dissipation. This transformation dictates the maximum impact force and spreading diameter. Previous studies have primarily focused on local subspaces in the $We$-$Oh$ elucidating the effects of either the inertial \cite{bennett1993splat, Clanet2004} or viscous forces \cite{madejski1976solidification, fedorchenko2005effect}, often neglecting the intricate interplay between them and capillarity \cite{Eggers2010, laan2014maximum, sanjay2024inertia}. We refer the readers to the review articles on drop impact for further details . 
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figure1_v5-eps-converted-to.pdf}
+\caption{(a) Phase space
+ in the $Oh$-$We$ plane, illustrating the range of simulations conducted in this work, with simulation points (for clarity, only every 16$^{\text{th}}$ case is shown) colored according to the Reynolds number $Re = \sqrt{We}/Oh$.
+ The three black lines (with slopes $-2$, $ -3/4$, 
+ and $1/2$, respectively)
+ delineate the  four different regimes of the drop spreading process
+ (see table in fig.\ \ref{fig-table}): 
+ Regime I: unbounded dissipation
+ (small Oh and small We);
+ Regime II: vertically bounded dissipation 
+ (small Oh and large We);
+ Regime III: fully bounded dissipation  
+ (medium Oh and large We);
+ Regime IV: no spreading phase 
+ (large Oh). 
+ (b) Four typical cases across the phase space, representing each of the four regimes. The plots show
+ the spreading diameter $D(t)$ and the normal 
+ reaction force $F(t)$. 
+ We chose ($We, Oh$) = (i) ($4, 4$), (ii) ($4, 0.01$), (iii) ($200, 1$), and (iv) ($200, 0.01$). For each case, the insets show the drop at the moments of maximum impact force and later at maximum spreading diameter. The left part of each numerical snapshot depicts the dimensionless local viscous dissipation rates $\zeta_\nu (\x , t) $ \cite{supplMaterial} on a $\log_{10}$ scale, and the right part shows the local velocity field magnitude normalized by the impact velocity.}
+\label{fig:1}
+\end{figure}
+
+The objective of this Letter is to achieve a unifying physical 
+understanding of how the maximal spreading diameter $D_\text{max}$ and the maximal
+normal force $F_\text{max}$ {\footnote{ 
+We note  that in singular cases the 
+first impact peak need not be the largest: As our recent studies \cite{sanjayzhang2022prl,sanjay2024inertia} have indicated, under 
+very specific conditions ($Oh \sim \mathcal{O}(10^{-3})$, $We \approx 9$),  
+a  second impact peak -- after droplet recoil and connected to 
+the bouncing up of the droplet --  can exceed the first one due to a hydrodynamic singularity. For our considerations here it is not relevant.  }}
+%which the droplet exerts on the surface
+dependent on the system's control
+parameters $We$ and $Oh$, for the whole 
+huge relevant parameter space of fig.\ \ref{fig:intro}. To do so, we first 
+perform over 16000
+direct numerical simulations (with the volume-of-fluid solver Basilisk 
+\cite{popinet-basilisk,vatsal_sanjay_2023_7598181}, detailed in the SI) 
+of the drop impact process over this whole $We-Oh$ 
+parameter space, see
+fig.\ \ref{fig:1}a, and numerically obtain the dependencies
+${F}_{\text{max}}\left(We , Oh\right)$ and 
+${D}_{\text{max}}\left(We, Oh \right)$, see figures \ref{fig:2}
+and \ref{fig:3}. 
+We then, in the main part of this Letter, develop a unifying theory to 
+account for these dependencies. It is inspired by 
+Grossmann's and Lohse's unifying theory (``GL-theory'') 
+for thermally driven turbulence
+\cite{grossmann2000scaling, grossmann2001thermal, lohse2023ultimate,lohse2024}, 
+whose key idea it is to spatially decompose  the energy dissipation rate
+into boundary layer
+and bulk contributions and to model these individually, 
+based on the different flow physics in the boundary layer and in the bulk.
+The  GL-theory
+gives  the full dependencies of the response parameters (in that case the overall
+heat transfer and turbulence intensity) on the control parameters. 
+Here, for the droplet impact problem,
+the decomposition of the energy dissipation rate will not 
+be spatially, but temporally, namely 
+splitting it into the impact phase and the spreading phase, 
+each characterized by different scaling laws. 
+This temporal decomposition allows us to disentangle 
+the respective influences of these two phases 
+on the maximal  force and the maximal spreading diameter, and to come to a 
+unifying physical 
+understanding of the dependencies 
+${F}_{\text{max}}\left(We , Oh\right)$ and 
+${D}_{\text{max}}\left(We, Oh \right)$ over the whole huge
+control parameter 
+space, consistent with our numerical results, cf.\ figures \ref{fig:2} and \ref{fig:3}. 
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{Figure2_v4-eps-converted-to.pdf}
+\caption{Maximum impact force $F_{\text{max}}$ compensated with the inertial force scale $\rho V_0^2D_0^2$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ at different $Oh$ and (c) $Oh$ at different $We$.  The data points represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The grey solid line in (b) represents the solution ignoring viscous dissipation. The dashed lines in (b) and (c) mark the asymptotes $We \gg 1$ and $Oh \ll 1$, respectively.}
+\label{fig:2}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Figure3_v6-eps-converted-to.pdf}
+	\caption{
+ Maximum spreading diameter $D_{\text{max}}$ normalized by the initial drop diameter $D_0$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ for various $Oh$, and (c) $Oh$ for different $We$. The data points represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The gray solid line in (b) represents the solution ignoring viscous dissipation.}
+	\label{fig:3}
+\end{figure}
+
+
+{\it Energy balance  to obtain $D_\text{max}$:} We start by formulating the exact energy balance for the drop impact process \cite{Wildeman2016, sanjay_chantelot_lohse_2023},
+\begin{align}
+	\label{eq:energy}
+	K_{\text{cm}}(t = 0) = K_{\text{cm}}(t) +  K_{\text{int}}(t) +  S(t) + mE_d(t),
+\end{align}
+ where $K_{\text{cm}}(t = 0) = mV_0^2/2$ is the center of mass kinetic energy at the moment of impact (fig.~\ref{fig:1}a), which is the total energy of the system with mass $m$. Upon impact and spreading, part of this initial kinetic energy remains as the center of mass kinetic energy $K_{\text{cm}}(t)$.
+ Another part transforms into internal kinetic energy $K_{\text{int}}(t)$
+ due to the redirection of vertical momentum into radial spreading. 
+ The third term on the rhs is the gain $S(t)$ of surface energy through the 
+ spreading process, 
+ as compared to the drop's  surface energy at $t=0$, when it is minimal, because 
+ the drop then is spherical. Finally, the last term $mE_d(t)$
+ accounts for the total 
+ viscous dissipation, which reduces the available energy over time, 
+ where $E_d(t)$ is the viscous dissipation per unit mass up to time $t$. 
+ It is obtained from  time-integration of the energy dissipation rate 
+ per mass and time $\varepsilon (t)$ as $E_d(t) = \int_0^t \varepsilon (t) dt$.
+
+ When is the maximal spreading $D_\text{max}$ achieved? 
+ Scaling-wise, this spreading time 
+$\tau_s$ is obtained from balancing inertia and capillarity, 
+$\tau_s \sim  \sqrt{\rho D_0^3/\gamma}$, also reflecting the known 
+ analogy between the first phase of drop spreading and the 
+ oscillation of a free droplet
+ \cite{Richard2002, Jha2020, sanjay_lohse_jalaal_2021}. 
+The surface energy at that moment  $t=\tau_s$ of maximal spreading is directly related to the maximum spreading diameter $D_{\text{max}}$ as $S(t = \tau_s) \sim \gamma\left(D_{\text{max}}^2 - D_0^2\right)$. Moreover, 
+at that moment,  
+the drop's center-of-mass  kinetic energy and its 
+internal kinetic energy are both zero, 
+$ K_{\text{cm}} (\tau_s ) =  K_{\text{int}} (\tau_s ) = 0$,  as illustrated in the insets of fig.~\ref{fig:1}(b) \cite{afkhami2013numerical, sanjay_lohse_jalaal_2021}. 
+Then the maximum spreading diameter 
+simply results from balancing the initial kinetic energy with the surface energy increment and the total viscous dissipation during spreading ($0 \le  t \le  \tau_s$), 
+\begin{align}
+	\label{eq:GlobalDmax}
+	K_{\text{cm}}(t = 0) = S(t = \tau_s) + mE_d(t = \tau_s).
+\end{align}
+We can rewrite eq.\ (\ref{eq:GlobalDmax}) as 
+\begin{align}
+\label{eq:GlobalDmax_v2}
+	D_{\text{max}} &= D_0\sqrt{\left(\alpha_0 + \alpha_1We\left(1 - \frac{E_d(t = \tau_s)}{V_0^2}\right)\right)}. 
+ \end{align}
+ Here we have replaced the scaling relations with exact equalities, which  introduces the free parameters 
+ $\alpha_i$,  $i=0, 1$. 
+
+{\it Force balance to obtain $F_\text{max}$:}
+To obtain the force balance, we differentiate  the energy transfer rates in eq.~\eqref{eq:energy} with respect to time. The derivative 
+$\dot{K}_{\text{cm}}(t) = -F(t)V_{\text{cm}}(t)$ straightforwardly gives
+the normal reaction force  $F(t)$, where  $V_{\text{cm}}(t)$ is the center of mass velocity.  We obtain the 
+maximal normal  force $F_{\text{max}} \approx F (t= \tau_\rho )$
+from using this  force balance at 
+the inertial time scale $t = \tau_\rho \equiv D_0/V_0$,
+\begin{align}
+	\label{eq:GlobalFmax}
+	F_{\text{max}} = \frac{1}{V_0}\left(\dot{K}_{\text{int}}(t = \tau_\rho) + \dot{S}(t = \tau_\rho) + m\varepsilon(t = \tau_\rho)\right). 
+\end{align}
+At this time $t= \tau_\rho$, the drop only deforms locally at the south pole, which contacts the substrate, while the north pole is still descending with velocity $V_0$ \cite{Eggers2010, sanjayzhang2022prl}. 
+We emphasize that the maximum force occurs 
+at $t = \tau_\rho$, much earlier than  
+the maximum spreading at $t = \tau_s \gg \tau_\rho$ (fig.~\ref{fig:1}b). 
+
+ Next, we  evaluate the internal kinetic energy of the spreading drop as $K_{\text{int}}(t) \sim mV_{\text{f}}^2/2$, where $V_{\text{f}}$ is the velocity at which the contact footprint $D_{\text{f}}$ grows on the rigid surface. Intriguingly, both the inertial \cite{wagner1932stoss, mandre2009precursors} and viscous \cite{hertz1881contact, langley2017impact, bilotto2023fluid, bertin2024similarity} regimes exhibit the same scaling behavior: $D_{\text{f}} \sim \sqrt{V_0D_0t}$. Consequently, $\dot{K}_{\text{int}}(t) \sim mV_0D_0/t^2$, see refs.\ 
+ \cite{Philippi2016, supplMaterial} for a detailed discussion. To calculate the rate of surface energy change, we assume that  the drop behaves like a deformable cylinder of constant volume. Thus, the scales for the 
+ time derivative 
+ of internal energy and surface energy at the inertial time scale are given by
+\begin{align}
+	\dot{K}_{\text{int}}^* &\equiv \dot{K}_{\text{int}}(t \approx \tau_\rho) \sim \rho V_0^3D_0^2,\,\,\text{and}\\
+	\dot{S}^* &\equiv \dot{S}(t \approx \tau_\rho) \sim \gamma D_0V_0,
+\end{align}
+respectively. We can then insert the energy and energy rate scales calculated above to simplify 
+eq.\ \eqref{eq:GlobalFmax} to 
+\begin{align}
+	\label{eq:GlobalFmax_v2}
+	F_{\text{max}} &= \rho V_0^2D_0^2\left(\beta_0 + \frac{\beta_1}{We} + \frac{\varepsilon(t = \tau_\rho)}{V_0^3/D_0}\right). 
+\end{align}
+Again we have replaced the scaling relations with exact equalities, which  introduces the free parameters  
+$\beta_i$, $i=0,1$. 
+
+
+
+
+
+
+{\it Inertial limits $Oh \to 0$:}
+Before we calculate the 
+total viscous dissipation $E_d(t) $  at time 
+$t = \tau_s$  in eq.\  \eqref{eq:GlobalDmax_v2} and the viscous dissipation
+rate $\varepsilon (t) = \dot E_d (t)$
+at time $t= \tau_\rho$ in eq.\ \eqref{eq:GlobalFmax_v2} in order to obtain 
+$F_\text{max} (We, Oh) $
+and $D_\text{max} (We , Oh)$
+for general $We$ and $Oh$, we first discuss the inertial limits $Oh \to 0$  
+of eqs.\ \eqref{eq:GlobalFmax_v2} and \eqref{eq:GlobalDmax_v2}. 
+ The resulting expression $F_{\text{max}} = \rho V_0^2D_0^2\left(\beta_0 + \beta_1/We\right)$ 
+ in this limit is identical to 
+ the empirically relationship already proposed in ref.\ 
+ \cite{sanjayzhang2022prl}, 
+ which models the crossover from inertial  dominance (first term) to 
+ capillary dominance (second term) with increasing $We$. 
+This expression nicely approximates the impact force 
+over two orders of magnitude in the Ohnesorge number $0.0025 < Oh < 0.2$, as shown in fig.\ref{fig:2} and \cite{sanjay2024inertia}. However, 
+as expected, 
+the agreement breaks down for moderate to large $Oh$ (fig.\ref{fig:2}(c)), 
+reflecting the relevance of the viscous contribution.
+Similarly, 
+ the 
+inertial limit of 
+eq.\ \eqref{eq:GlobalDmax_v2} 
+gives 
+$D_{\text{max}}/D_0  \sim \sqrt{1 + \alpha We}$, which is shown in 
+figure \ref{fig:3}b as grey line and clearly does not describe the data
+for large $Oh$.
+
+
+{\it Key idea to calculate the energy dissipation rates for general $(Oh, We)$:}
+So it has become clear  that for the general case it is crucial to
+calculate the energy dissipation rates
+in eqs.\  \eqref{eq:GlobalDmax_v2} and
+\eqref{eq:GlobalFmax_v2}.
+To do so,   we 
+got inspired by  the GL-theory \cite{grossmann2000scaling,grossmann2001thermal,grossmann2002prandtl,lohse2023ultimate} 
+for wall-bounded turbulent thermal convection. 
+The key idea of that theory is to spatially split the viscous dissipation rate 
+into  boundary layer and  bulk contributions and estimate those separately,
+reflecting the different flow physics in these two regions.
+Instead of the spatial decomposition employed in that theory, here, 
+we {\it temporally}  decompose the viscous dissipation rate, by
+dividing the whole drop impact process into an impact phase (index ``$i$'')
+and a spreading phase (index ``$s$''). 
+
+
+{\it Maximum impact force for general $We$ and $Oh$:} 
+For the general case 
+of  eq.\ (\ref{eq:GlobalFmax_v2}),   
+we have to evaluate  the energy 
+dissipation rate
+$\varepsilon^* \equiv \varepsilon(t \approx \tau_\rho)$. 
+During the impact phase, which takes place on
+the inertial time scale $\tau_\rho$,  the drop's south pole halts \cite{renardy2003pyramidal, Biance2006}, creating a velocity gradient near the surface across a boundary layer with thickness 
+$\lambda_i(t)$, observable in the black region of fig.~\ref{fig:1}(b). This gradient $V_0/\lambda_i(t)$ propagates to the north pole, building up a  viscous velocity gradient in 
+the drop. The thickness of this boundary layer during the impact phase 
+scales as  $\lambda_i(t) \sim \sqrt{\nu t}$, 
+according to the Prandtl-Blasius boundary layer theory \cite{Prandtl1905, Blasius1908,Schlichting1979}. 
+%\oo and analogously to the Mirels shock wave theory \cite{mirels1955laminar, schlichting2016boundary}. \bb
+%\oo [Do we really need Mirels? I think people will not understand the
+%comment on Mirels. Shock waves have not been mentioned at all.]
+%\bb 
+Here $\nu = \mu /\rho$ is the kinematic viscosity. 
+In this phase
+the viscous dissipation rate $\varepsilon_{i, \text{PB}}(t)$ within the volume $\Omega_{\nu, i}(t) \sim D_{\text{f}}(t)^2\lambda_i(t)$
+is approximated as 
+%a cylinder with diameter equivalent to the drop's foot diameter and height $\lambda_i(t)$--is expressed as
+\begin{align}
+	\label{eq:PB}
+	\varepsilon_{i,\text{PB}}(t) \sim \frac{\nu}{D_0^3}\left(\frac{V_0}{\lambda_i(t)}\right)^2D_{\text{f}}(t)^2\lambda_i(t) \sim \sqrt{\frac{\nu t}{D_0^2}}\frac{V_0^3}{D_0}.
+\end{align}
+
+
+For very viscous liquids (large $\nu$ and thus large 
+$Oh$) the boundary layer thickness $\lambda_i \sim \sqrt{\nu t}$  very quickly reaches the full diameter $D_0$
+of the droplet and then obviously no longer increases, $\lambda_i \sim D_0$, as illustrated in the last line of 
+the table
+in figure \ref{fig-table}. 
+Then the energy dissipation rate $\varepsilon_{i,\text{PB}}(t)$
+of eq.\ (\ref{eq:PB}), which holds during the Prandtl-Blasius 
+phase of the impact phase, must be replaced by 
+\begin{align}
+	\label{eq:infty}
+	\varepsilon_{i,\infty}(t) \sim \frac{\nu}{D_0^3}\left(\frac{V_0}{D_0 }\right)^2D_{\text{f}}(t)^2 D_0 \sim \left(\frac{\nu t}{D_0^2}\right)\frac{V_0^3}{D_0}.
+\end{align}
+Here we chose the index ``$\infty$" in analogy to the notation of the
+GL-theory for thermally driven convection, where the corresponding regime, in which the boundary layer reaches the system size, is also noted with that index. 
+This extra subphase  of the impacting phase can only occur when 
+the 
+viscous timescale $\tau_\nu \equiv D_0^2/\nu$
+is faster than the impact timescale $\tau_\rho$,
+i.e., when $\tau_\nu \ll \tau_\rho$, or, in other
+words, when the drop impact 
+  Reynolds number   $Re \equiv V_0D_0/\nu \ll   1$, i.e., indeed only in the
+  viscous case. Then, to estimate the mean dissipation at time $t \approx \tau_\rho$, we must consider the two subphases of the impacting phase 
+  separately.  
+
+So,  in summary, the estimate for the dissipation  rate at
+the time $t \approx \tau_\rho$ 
+of  the maximal force $F_\text{max}$ is 
+\begin{align}\label{fmax} 
+\varepsilon^* \equiv \varepsilon(t \approx \tau_\rho) \sim 
+\begin{cases}
+    \overbrace{\frac{d}{dt}\left(\int_0^{\tau_\rho}\varepsilon_{i,\text{PB}}(t) dt\right)}^{\varepsilon_{i,\text{PB}}(t \approx \tau_\rho)}
+    & \text{for } Re > 1\text{, and} \\[4ex]
+    \underbrace{\frac{d}{dt}\left(\int_0^{\tau_\nu}\varepsilon_{i,\text{PB}}(t) dt\right)}_{\varepsilon_{i,\text{PB}}(t \approx \tau_\nu)} + \underbrace{\frac{d}{dt}\left(\int_{\tau_\nu}^{\tau_\rho}\varepsilon_{i,\infty}(t) dt\right)}_{\varepsilon_{i,\infty}(t \approx \tau_\rho) - \varepsilon_{i,\infty}(t \approx \tau_\nu)}
+    & \text{for } Re < 1
+\end{cases}
+\end{align}
+which, when filled into  eq.\ \eqref{eq:GlobalFmax_v2}, gives our final
+result for the (nondimensionalized) maximal impact force, 
+\begin{align}
+	\label{eq:FinalFmax}
+	\frac{F_{\text{max}}}{\rho V_0^2D_0^2} =\, \beta_0 + \frac{\beta_1}{We} + \left\{ \begin{aligned} &k_0 \left(Oh/\sqrt{We}\right)^{1/2} && \text{for}\,Re > 1\\ &m_0 + m_1\left(Oh/\sqrt{We} - 1\right) && \text{for}\,Re < 1 \end{aligned} \right.
+\end{align}
+Here, again, the scaling relations have been replaced by an equal sign and the corresponding prefactors 
+(here $k_0$, $m_0$, $m_1$) 
+that 
+must be fitted to trustable data (see SI for details), 
+in perfect analogy to what had to be done
+in the GL-theory for thermal convection. 
+The result is shown in  fig.~\ref{fig:2} and compared to the 
+numerical data, which are excellently described.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{table1_v2-eps-converted-to.pdf}
+	\caption{Sketches of the impacting phase (i-phase)
+ and the spreading phase (s-phase) with the respective
+ scaling relations for the four regimes I, II, III, and IV.  
+ }
+	\label{fig-table}
+\end{figure}
+
+
+{\it Maximum spreading diameter for general $We$ and $Oh$:} 
+As seen above,  the viscous contribution $E_d(t=\tau_s)
+  =\int_0^{\tau_s}   \varepsilon (t) dt  $  
+in eq.~\eqref{eq:GlobalDmax_v2} is highly relevant 
+to obtain the general case 
+for the maximal spreading diameter $D_\text{max}$. 
+To calculate it, as explained above, we have to take notice of the different
+fluid dynamics in the impacting phase and in the spreading phase.
+We correspondingly decompose the total energy dissipation into
+\begin{align}
+	\label{eq:dissipationIntegral}
+	E_d(t = \tau_s) = \int_0^{\tau_\rho}\varepsilon_i(t)dt + \int_{\tau_\rho}^{\tau_s}\varepsilon_s(t)dt,
+\end{align} 
+where 
+\begin{align}\label{eq14}
+	\varepsilon_i(t) &\sim \frac{\nu}{D_0^3}\left(\frac{V_0}{\lambda_i(t)}\right)^2\Omega_{\nu,i}(t)\quad\text{and}\\
+ \label{eq15}
+	\varepsilon_s(t) &\sim \frac{\nu}{D_0^3}\left(\frac{V_\text{f}(t)}{\lambda_s(t)}\right)^2\Omega_{\nu,s}(t)
+\end{align}
+ are the viscous dissipation rates in the impact and spreading time intervals, respectively. 
+ 
+The impact interval can be computed identically to what we have done already in equations~\eqref{eq:PB} and~\eqref{eq:infty} for the force calculation.  
+What occurs in 
+ the spreading phase depends on $Oh$ and $We$ and 
+ can be classified into four different 
+ regimes, see fig.~\ref{fig:1}a and the right column
+ in the table in figure \ref{fig-table}:
+\begin{enumerate}
+    \item[I] Regime I (small $Oh$ and small $We$): 
+    The viscous boundary layer remains engulfed inside the falling drop and never reaches the north pole during impact or spreading. In this regime, the viscous boundary layer $\lambda_s(t)$ develops due to the radial spreading of the drop's foot $D_{\text{f}}(t)$ on the rigid surface and follows the conventional Prandtl-Blasius scaling \cite{Prandtl1905, Blasius1908,Schlichting1979}. The volume $\Omega_{\nu, s}(t)$ where the dissipation occurs can be modeled as a cylinder with diameter $D_{\text{f}}(t)$ and height $\lambda_s(t)$.
+
+    \item[II] Regime II (small $Oh$ and large $We$): The viscous boundary layer stays inside the deforming drop during the impact but reaches the north pole in the spreading phase, with the dissipation region confined within the drop.
+
+    \item[III] Regime III (medium $Oh$ and large $We$): Similar to Regime II, but the dissipation region spreads throughout the drop during the spreading phase.
+
+    \item[IV]  Regime IV (large $Oh$): The viscous boundary layer reaches the north pole during impact, causing dissipation throughout the drop. This regime is identical to the $\infty$-regime encountered while evaluating the viscous dissipation rate in eq.~\eqref{eq:infty}.
+\end{enumerate}
+We refer the readers to the supplementary material \cite{supplMaterial} for detailed calculations of the scaling behaviors in these four regimes and summarize them in the 
+table in figure 
+\ref{fig-table}. 
+
+The transitions between these four 
+regimes are characterized by the different physical balances resulting in specific scaling relationships (fig.\ \ref{fig:1}). 
+The transition from Regime I to II occurs when the viscous boundary layer reaches the north pole during spreading. To determine the crossover time to this regime, we use the trajectory of the drop's north pole, given by $D_0^3/(V_0^2t^2)$, independent of $We$ and $Oh$ for inertial impacts \cite{Eggers2010}, and equate it to the growing boundary layer thickness $\lambda_s(t) \sim \sqrt{\nu t}$. Beyond this crossover, $\lambda_s(t)$ becomes time-invariant and equal to $D_0Re^{-2/5}$ \cite{Eggers2010}. Consequently, the transition from regime I to II occurs at $\tau_s \sim \tau_\rho Re^{1/5}$, corresponding to $Oh \sim We^{-2}$.
+The transition from Regime II to III is marked by the dissipation region extending throughout the drop during spreading, occurring when $\Omega_{\nu, s}(t) \approx D_0^3$, giving $\tau_s \sim \tau_\rho Re^{2/5}$, corresponding to $Oh \sim We^{-3/4}$. Notably, once the dissipation has taken over the entire drop's volume, the drop's foot also becomes immobile, and the spreading phase ceases at $\tau_s \sim \tau_\rho Re^{2/5}$.
+Finally, the transition from Regime III to IV takes place when the viscous boundary layer reaches the north pole during impact, corresponding to $\tau_\rho \sim \tau_\nu$, $Re \sim 1$, or $Oh \sim \sqrt{We}$, as already explained above.
+
+
+
+The next  step is to plug in  the relevant timescales  in eq.\ (\ref{eq:dissipationIntegral}) and to 
+evaluate the integrals with the estimates (\ref{eq14}) and (\ref{eq15}).  We obtain 
+\begin{align}
+	\label{eq:FinalDmax}
+	 \frac{E_d(t = \tau_s)}{V_0^2} \sim \begin{cases}
+		\left(a_0 + a_1We^{1/4}\right)/\sqrt{Re}\quad\text{in Regime I,}\\
+		\left(b_0 + b_1Re^{1/10} + b_2Re^{-1/10}\sqrt{We} \right)/\sqrt{Re}\quad\text{in Regime II,}\\
+		\left(c_0 + c_1Re^{1/10} + c_2Re^{3/10}\right)/\sqrt{Re}\quad\text{in Regime III,}\\
+		d_0 + d_1Re + d_1/Re\quad\text{in Regime IV,}
+	\end{cases}
+\end{align}
+which is then plugged into eq.\ (\ref{eq:GlobalDmax_v2}) to get the
+final results for $D_\text{max} (We, Oh)$. 
+Again, in eq.\  (\ref{eq:FinalDmax}),
+the 
+scaling relations have been replaced by prefactors that must be
+fitted to trustable data of $D_\text{max} ( We, Oh )$, cf.\ SI.
+The result is shown in fig.~\ref{fig:3} and compared to the numerical
+data, which again are excellently described. 
+
+
+
+We emphasize that, remarkably,
+even in the low-viscosity limit $Oh \to 0$ the 
+viscous 
+contribution  (\ref{eq:FinalDmax}) to the final result for $D_\text{max}$ 
+(cf.\ eq.\ (\ref{eq:GlobalDmax_v2})) cannot be neglected and does 
+contribute! This for examples holds for 
+water-like systems (which have $Oh \ll 1$), 
+as we had already realized in ref.\ 
+\cite{sanjay_chantelot_lohse_2023}. This dissipation occurs at impact, as depicted in the insets of fig.~\ref{fig:1}. Even 
+for $Oh \to 0^+$, this dissipation remains substantial.
+We note that this also holds for the normal impact force (for $Re <1$),
+see eq.\ (\ref{fmax}). 
+Such a singular limit is 
+akin to the dissipative anomaly observed in fully developed turbulence \cite{prandtl1904, onsager1949statistical, dubrulle2019beyond, eggers2018role}, and we have  been recently investigated similar
+singular limits also 
+in the context of  sheet retraction \cite{sanjay2022taylor}, sliding drops \cite{talukdar2024}, converging gravito-capillary waves \cite{kayal2024focusing}. 
+
+
+
+{\it Conclusions and outlook:} This study presents a comprehensive theoretical framework to elucidate the scaling laws governing the maximum impact force 
+$F_\text{max} (We, Oh)$ 
+and the maximal spreading diameter $D_\text{max} (We, Oh) $ of droplets upon impact. 
+Inspired by the GL-theory 
+for thermally driven turbulence, 
+we systematically consider viscous dissipation rates 
+across various regimes and allows for predictions. 
+Our model covers five decades in the Ohnesorge number $Oh$ and three decades in the Weber number $We$, effectively mapping the transitions between the 
+different regimes. 
+Future research could  extend  
+the present model in order to  incorporate 
+the effects of gravity, which  influences 
+the spreading diameter at moderate to high $Oh$ numbers. 
+
+
+Our results illustrate that viscous dissipation significantly affects the maximum impact force and spreading diameter, even in regimes typically considered inertial, i.e., when $Oh$ is small. 
+For instance, the solid gray line in Fig.~\ref{fig:3}(b) represents the theoretical upper bound of the spreading diameter when viscous dissipation is neglected and totally fails to describe the data.  
+Drop impact thus is an example for a singular limit in hydrodynamics. 
+It underscores the importance of accounting for viscous effects in
+hydrodynamics systems in general, 
+even in low-viscosity systems, reflecting 
+the persistent contribution of  
+dissipation even  for $Oh \to 0^+$. 
+
+Our results also demonstrate the capacity of the key idea of 
+the GL-theory, namely to decompose the energy dissipation rate 
+of a hydrodynamic systems, either locally as in the original GL-theory
+\cite{grossmann2000scaling,grossmann2001thermal},
+or here temporally, and suggests to try such an approach also to
+other hydrodynamic problems. 
+
+
+\begin{acknowledgments}
+{\it Acknowledgements:} The authors are grateful to Pierre Chantelot, Andrea Prosperetti, Uddalok Sen, and Vincent Bertin for the stimulating discussions, and 
+to Anjali Suman for help with the implementation of the regression algorithm to find the prefactors in eqs.~\eqref{eq:FinalFmax} and~\eqref{eq:FinalDmax} \cite{supplMaterial}.
+We also acknowledge financial support from NWO and from Canon. 
+The numerical simulations were carried out on the national e-infrastructure of SURFsara, a subsidiary of SURF cooperation, the collaborative ICT organization for Dutch education and research. 
+\end{acknowledgments}
+
+\vspace{-5mm}
+\bibliographystyle{prsty_withtitle}
+\bibliography{refs}
+
+\end{document}

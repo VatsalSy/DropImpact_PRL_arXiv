@@ -1,0 +1,269 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[reprint,amssymb,superscriptaddress,aps,prfluids,onecolumn]{revtex4-1}
+\usepackage{amsmath}
+\usepackage{graphicx}% Include figure files
+\usepackage{array}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{epstopdf}
+\usepackage{lipsum}
+
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true,
+	urlcolor = blue,
+	citecolor= blue,
+        linkcolor = black,
+}
+
+% Commands
+
+% better textcircled
+\usepackage{tikz}
+\renewcommand{\textcircled}[1]{%
+	\protect\begin{tikzpicture}[baseline=(char.base)]
+		\protect\node[shape=circle,draw,inner sep=1pt] (char) {\normalfont#1};
+		\protect\end{tikzpicture}%
+}
+
+%
+\newcommand{\Wen}{\mathit{We}}
+\newcommand{\Ren}{\mathit{Re}}
+\newcommand{\Ohn}{\mathit{Oh}}
+
+\usepackage{siunitx}
+\newcommand*\red{\textcolor{red}}
+\newcommand*\blue{\textcolor{blue}}
+\newcommand{\revV}[1]{\textcolor{Rhodamine}{#1}}
+
+
+\newcommand{\oo}{\color{magenta} \normalfont}
+\newcommand{\bb}{\color{black} \normalfont}
+
+\newcommand{\vs}{\color{orange} \normalfont}
+
+\usepackage[normalem]{ulem}
+\usepackage[textwidth=\dimexpr\textwidth-2cm\relax]{todonotes}
+\makeatletter
+\@mparswitchfalse%
+\makeatother
+\normalmarginpar %for right-handed notes and lines, or
+\newcommand{\vsy}[1]{\todo[color=orange, bordercolor=none, textcolor=black]{Vatsal}\textcolor{orange}{#1}}
+
+\newcommand{\citeme}{\textsuperscript{\textcolor{red}{citeme}}}
+
+\begin{document}
+	
+\preprint{APS/123-QED}
+
+\title{Supplementary material for: \\
+	Unifying theory of scaling in drop impact:\\ Forces \& maximum spreading diameter}% Force line breaks with \\
+
+\author{Vatsal Sanjay}
+\email{vatsalsanjay@gmail.com}
+\affiliation{	
+	Physics of Fluids Group, Max Planck Center Twente for Complex Fluid Dynamics, and J. M. Burgers Center for Fluid Dynamics, University of Twente, P.O. Box 217, 7500AE Enschede, Netherlands
+}
+\author{Detlef Lohse}
+\email{d.lohse@utwente.nl}
+\affiliation{	
+	Physics of Fluids Group, Max Planck Center Twente for Complex Fluid Dynamics, and J. M. Burgers Center for Fluid Dynamics, University of Twente, P.O. Box 217, 7500AE Enschede, Netherlands
+}
+\affiliation{
+	Max Planck Institute for Dynamics and Self-Organisation, Am Fassberg 17, 37077 G{\"o}ttingen, Germany
+}
+
+\date{\today}
+
+% ------------------------------------------------------------------
+
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+%display desired
+\maketitle
+
+\tableofcontents
+
+% \clearpage
+
+\section{Direct numerical simulations}\label{sec:NumMethods}
+
+\subsection{Governing equations}
+
+We perform direct numerical simulations of an axisymmetric incompressible drop impacting a rigid surface using the open-source software Basilisk \cite{popinet-basilisk}. The impact dynamics are governed by the droplet's impact velocity $V_0$, diameter $D_0$, and material properties (density $\rho$, kinematic viscosity $\nu$, dynamic viscosity $\mu = \rho\nu$, and surface tension $\gamma$). The conservation of mass and momentum imply
+
+\begin{align}
+	\label{eqn:continuity}
+	\boldsymbol{\nabla\cdot v} = 0
+\end{align}
+and
+
+\begin{align}
+	\label{Eqn::NS}
+	\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{\nabla\cdot}\left(\boldsymbol{v}\boldsymbol{v}\right) &= -\frac{1}{\rho}\boldsymbol{\nabla} p + \boldsymbol{\nabla\cdot}\left(2\nu\boldsymbol{\mathcal{D}}\right),
+\end{align}
+respectively. Here, $\boldsymbol{v}$ is the velocity field, $p$ is pressure, and $\boldsymbol{\mathcal{D}} = (\nabla\boldsymbol{v} + (\nabla\boldsymbol{v})^T)/2$ is the deformation tensor. For the initial condition, we assume that the drop is about to hit the rigid surface with velocity $V_0$. 
+We vary the dimensionless 
+control parameters  
+$
+We \equiv \rho V_0^2D_0 / {\gamma} 
+$
+and $
+Oh \equiv {\mu}/ \sqrt{\rho\gamma D_0}
+$
+over the huge parameter range $1\le We \le 10^3$ and $10^{-3}\le Oh \le 10^2$. To mimic a liquid-gas free surface, we set the Ohnesorge number of the surrounding gas $Oh_s = (\mu_s/\mu)Oh = 10^{-5}$ and the density ratio $\rho_s/\rho = 10^{-3}$.  
+To keep track of this interface, we employ the one-fluid approximation \cite{prosperetti2009computational, tryggvason2011direct} with a volume fraction $\Psi$ to distinguish between the drop ($\Psi=1$) and surrounding air ($\Psi=0$). The volume fraction follows
+
+\begin{align}
+	\label{Eqn::Vof2}
+	\frac{\partial \Psi}{\partial t} + \boldsymbol{\nabla \cdot}(\boldsymbol{v}\Psi) = 0.
+\end{align}
+
+To respect the dynamic boundary condition at the liquid-gas interface, a singular surface tension force $\boldsymbol{f}_\gamma$ is applied at the surface and is given by \cite{brackbill1992continuum}
+
+\begin{equation}\label{Eqn::SurfaceTension}
+	\boldsymbol{f}_\gamma \approx \gamma\kappa\boldsymbol{\nabla}\Psi
+\end{equation}
+where $\gamma$ is the surface tension coefficient and $\kappa$ is the interface curvature calculated using the height-function method. 
+
+The normal force on the substrate is calculated by integrating the pressure over the impact area \cite{landau2013course}:
+\begin{equation}
+	\label{Eqn::force2}
+	\boldsymbol{F}(t) = F(t) \hat{\boldsymbol{z}} = \left(\int_\mathcal{A} \left(p-p_0\right)\mathrm{d}\mathcal{A}\right)\hat{\boldsymbol{z}}
+\end{equation}
+\noindent where $p_0$ is the ambient pressure, $\hat{\boldsymbol{z}}$ is the unit vector normal to the substrate, and $\mathcal{A}$ is the substrate area. We 
+keep track of the maximum spreading diameter $D(t)$ at all times by finding the radial maximum of the spreading drop. 
+Another important metric is the viscous dissipation across various regimes for the prediction of the maximal spreading diameter $D_\text{max}$ and the maximal
+normal force $F_\text{max}$. The total viscous dissipation per unit mass is $E_d(t) = \int_0^t \varepsilon(t)dt$ where $\varepsilon(t)$ is the viscous dissipation rate per unit time averaged over the drop's mass and is given by
+
+\begin{equation}
+	\varepsilon(t) = \frac{3}{4\pi \rho D_0^3}\int_m\zeta_\nu(t, \boldsymbol{x}) dm,
+	\label{Eqn::dissipation1}
+\end{equation}
+where, $\zeta_\nu(t, \boldsymbol{x}) = 2\nu \left(\boldsymbol{\mathcal{D}:\mathcal{D}}\right)$  is the local viscous dissipation function \cite{landau2013course}. Both $\varepsilon(t)$ and $\zeta_\nu(t, \boldsymbol{x})$ have the dimensions of $V_0^3/D_0$, i.e., length squared over time cubed or velocity squared over time, as it should be for dissipation rate of energy per unit mass.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{domainBasilisk.eps}
+	\caption{Problem schematic with an axisymmetric computational domain used to study the impact of a drop with diameter $D_0$ and velocity $V_0$ on a non-wetting substrate. The grey dashed-dotted line represents the axis of symmetry, $r = 0$. Boundary air outflow is applied at the top and side boundaries (tangential stresses, normal velocity gradient, and ambient pressure are set to zero). The domain boundaries are far enough from the drop not to influence its impact process ($\mathcal{L}_\text{max} \gg D_0$, $\mathcal{L}_\text{max} = 8R$ in the worst case).}
+	\label{fig:S1}
+\end{figure}
+
+\subsection{Simulation details}
+\subsubsection{Domain description}
+We leverage the axisymmetry of the drop impact process to reduce the computational complexity. Fig.~\ref{fig:S1} illustrates the axisymmetric domain used in our simulations, where $r=0$ denotes the axis of symmetry. The domain size is chosen to be sufficiently large ($\mathcal{L}_\text{max} \gg D_0$, with $\mathcal{L}_\text{max} = 8D_0$ in the worst case) to avoid boundary effects on the impact dynamics.
+At the substrate ($y=0$), we impose no-slip and non-penetration conditions for velocity, along with a zero normal gradient condition for pressure. To model a perfectly non-wetting surface, we maintain a thin air layer between the drop and the substrate by setting the VoF tracer $\Psi = 0$ at the wall. This approach, while not fully resolving microscopic dynamics within the air layer, has been shown to accurately capture the macroscopic behavior of drop impact on superhydrophobic surfaces \citep{ramirez2020lifting,sanjay2023drop,alventosa2023inertio,garcia2024skating}.
+At the top and side boundaries, we apply outflow conditions, setting tangential stresses and normal velocity gradients to zero, and pressure to the ambient value. These boundary conditions allow for the unimpeded exit of air from the domain during impact.
+\subsubsection{Brief note on the discretization schemes}
+We employ a finite volume discretization on a staggered grid, with second-order accuracy in both space and time \cite{popinet-basilisk}. The momentum advection terms are treated using the conservative scheme \cite{popinet-basilisk-momentum}, while viscous terms are handled implicitly \cite{popinet-basilisk-viscosity}. Surface tension is implemented using the well-balanced continuum surface force method \cite{popinet2018numerical,basiliskPopinet2}.
+Adaptive mesh refinement is utilized to efficiently resolve regions of high velocity gradients and the drop-air interface. The minimum grid size is set to $\Delta = D_0/2048$, which we determined through mesh independence studies to be sufficient for accurate resolution of the impact dynamics.
+The maximum time step is restricted by the capillary wave stability criterion to ensure stability of the explicit surface tension scheme \citep{popinet2009accurate,basiliskPopinet2}. For the VoF advection, we use a geometric method that ensures mass conservation and sharp interface representation.
+
+\subsubsection{Initial conditions}
+At $t=0$, we initialize a spherical drop with its south pole positioned $0.05D_0$ above the substrate, falling with velocity $V_0$. While this idealized initial condition may not fully capture the residual oscillations present in experimental drops, particularly for low $We$ and $Oh$, we expect that the influence of these shape variations is at least partially accounted for in the experimental error bars derived from repeated trials.
+
+\subsubsection{Limitations and considerations}
+It is worth noting that the axisymmetric assumption breaks down for high Weber numbers ($We \gtrsim 100$ for water drops, and even higher for more viscous fluids) due to destabilization by the surrounding gas after splashing \citep{xu2005drop,Eggers2010,Driscoll2011,riboux2014experiments,Josserand2016,sanjayzhang2022prl}. While greatly influencing the second peak amplitude of the impacting force, the maximal force right after impact is invariant to this change in dynamics \cite{sanjayzhang2022prl,sanjay2024inertia}. For the maximum spreading diameter, we disregard any smaller droplets that might be ejected from post lamella destabilization of the impacting drop. 
+Furthermore, while our thin air layer approach effectively models an ideal non-wetting surface, it does not fully resolve the microscopic dynamics within the air film \cite{kolinski-2014-epl,sprittles2024gas}, particularly when it thins below a critical size of approximately $10\Delta$. However, for the parameter range of interest in this study, this approach has been demonstrated to accurately capture the macroscopic impact behavior \citep{ramirez2020lifting,sanjay2023drop,alventosa2023inertio,garcia2024skating}.
+The simulation source codes and post-processing scripts used in this study are available in a public GitHub repository \citep{basiliskVatsal}, ensuring reproducibility and facilitating further development of this work.
+
+\section{Regression procedure for finding the maximum impact force}
+
+The expression for the maximum impact force is given by (eq.~(12) of the original text):
+
+\begin{align}
+	\label{supp:eq:FinalFmax}
+	\frac{F_{\text{max}}}{\rho V_0^2D_0^2} =\, \beta_0 + \frac{\beta_1}{We} + \left\{ \begin{aligned} 
+		&k_0 We^{-1/4}\sqrt{Oh} && \text{for}\,Re > 1\\ 
+		&m_0 + m_1\left(Oh/\sqrt{We} - 1\right) && \text{for}\,Re < 1 
+	\end{aligned} \right.
+\end{align}
+
+To determine the coefficients in this equation, we employ a multi-step regression procedure. We first consider the inertial limit where we have previously \cite{sanjayzhang2022prl,sanjay2024inertia} shown that $F_{\text{max}} \approx 0.81 + 1.6/We$ over two orders of magnitude in $Oh$. This allows us to set $\alpha_0 = 0.81$ and $\alpha_1 = 1.6$. To account for viscous effects, we focus on regions far from the transition line between inertial and viscous regimes. Specifically, we consider the data points with $Re \geq 10$ for the inertial regime and $Re \leq 0.1$ for the viscous regime. We perform separate fits to minimize the least-squared errors in these regions to obtain initial estimates for $k_0$, $m_0$, and $m_1$. To model the transition between regimes, we introduce a smooth transition function using a {\it Sigmoid} function centered at $Re = 1$, given by
+\begin{align}
+	\sigma(Re) = \frac{1}{1 + \exp(-\chi\left(Re - 1\right))}
+\end{align}
+where $\chi$ is the smoothness parameter for the {\it Sigmoid}. This ensures a continuous transition between the inertial and viscous expressions. Finally, we perform a global least-squared fit using all data points to find the value of $\chi$ and refine the values of $k_0$, $m_0$, and $m_1$, while keeping $\alpha_0$ and $\alpha_1$ fixed at their inertial limit values. This procedure results in the following expression for the maximum impact force:
+\begin{align}
+	\label{FinalFmaxWithCoeff}
+	\frac{F_{\text{max}}}{\rho V_0^2D_0^2} =\, 0.81 + \frac{1.6}{We} + \left\{ \begin{aligned} 
+		&1.44 We^{-1/4}\sqrt{Oh} && \text{for}\,Re > 1\\ 
+		&3.85 + 0.72\left(Oh/\sqrt{We} - 1\right) && \text{for}\,Re < 1 
+	\end{aligned} \right.
+\end{align}
+with the fit being fairly insensitive to $0.8 < \chi < 1.2$.
+	
+	
+\section{Regression procedure for finding the maximum spreading diameter}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{table1_v3.eps}
+	\caption{Relations to predict the maximum spreading diameter for the four regimes I, II, III, and IV.  }
+	\label{supp:dmax_results}
+\end{figure}
+
+The expression for the maximum spreading diameter is given by (eq.~(4) of the original text):
+\begin{align}
+	\label{suppleq:GlobalDmax_v2}
+	D_{\text{max}} &= D_0\sqrt{\left(\alpha_0 + \alpha_1We\left(1 - \frac{E_d(t = \tau_s)}{V_0^2}\right)\right)}. 
+\end{align}
+where the dimensionless dissipation (eq.~(16) of the original text) is given by
+\begin{align}
+	\label{suppleq:FinalDmax}
+	\frac{E_d(t = \tau_s)}{V_0^2} \sim \begin{cases}
+		\left(a_0 + a_1We^{1/4}\right)/\sqrt{Re}\quad\text{in Regime I,}\\
+		\left(b_0 + b_1Re^{1/10} + b_2Re^{-1/10}We^{1/2} \right)/\sqrt{Re}\quad\text{in Regime II,}\\
+		\left(c_0 + c_1Re^{1/10} + c_2Re^{3/10}\right)/\sqrt{Re}\quad\text{in Regime III,}\\
+		d_0 + d_1Re + d_1/Re\quad\text{in Regime IV,}
+	\end{cases}
+\end{align}
+
+To determine the coefficients, we employ a multi-step regression procedure. Initially, we fit the scaling laws in each regime separately, focusing on data points far from transition lines to obtain preliminary estimates for $\alpha_i$, $a_i$, $b_i$, $c_i$, and $d_i$. To model regime transitions, we introduce smooth transition functions using Sigmoid functions. We define Euclidean distance functions for each transition:
+\begin{alignat}{2}
+	R_\text{I--II}   &= \sqrt{(Oh - Oh_{c,\text{I--II}})^2 + (We - We)^2},   &&\text{ where } Oh_{c,\text{I--II}} = We^{-2} \\
+	R_\text{II--III} &= \sqrt{(Oh - Oh_{c,\text{II--III}})^2 + (We - We)^2}, &&\text{ where } Oh_{c,\text{II--III}} = We^{-3/4} \\
+	R_\text{III--IV} &= \sqrt{(Oh - Oh_{c,\text{III--IV}})^2 + (We - We)^2}, &&\text{ where } Oh_{c,\text{III--IV}} = We^{1/2}
+\end{alignat}
+Using these distances, we define Sigmoid transition functions:
+\begin{align}
+	\sigma_i(R_i) = \frac{1}{1 + \exp(-\chi_i R_i)}
+\end{align}
+where $i$ represents each transition and $\chi_i$ are smoothness parameters.
+We then combine individual regime expressions using these transition functions to create a global model:
+\begin{align}
+	\frac{D_{\text{max}}}{D_0} = (1-\sigma_\text{I--II})f_\text{I} +
+	\sigma_\text{I--II}(1-\sigma_\text{II--III})f_\text{II} +
+	\sigma_\text{II--III}(1-\sigma_\text{III--IV})f_\text{III} +
+	\sigma_\text{III--IV}f_\text{IV}
+\end{align}
+where $f_\text{I}$, $f_\text{II}$, $f_\text{III}$, and $f_\text{IV}$ are the expressions for each regime after combining eqs.~\eqref{suppleq:GlobalDmax_v2}--\eqref{suppleq:FinalDmax}.
+Finally, we perform a global least-squared fit using all data points to refine all parameters by minimizing the mean squared error between model predictions and numerical simulation results. This procedure yields expressions for the maximum spreading diameter in each regime, as shown in fig.~\ref{supp:dmax_results}. The global model provides smooth transitions between regimes and accurately captures behavior across the entire parameter space. We find the fit to be relatively insensitive to smoothness parameters in the range $0.8 < \chi_i < 1.2$.
+
+%\clearpage
+	
+\bibliographystyle{prsty_withtitle}
+\bibliography{refs}
+	
+\end{document}
+%
+% ****** End of file manuscript.tex ******
