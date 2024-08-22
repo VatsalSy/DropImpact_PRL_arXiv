@@ -284,7 +284,7 @@ space, consistent with our numerical results, cf.\ figures \ref{fig:2} and \ref{
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{Figure2_v4-eps-converted-to.pdf}
-\caption{Maximum impact force $F_{\text{max}}$ compensated with the inertial force scale $\rho V_0^2D_0^2$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ at different $Oh$ and (c) $Oh$ at different $We$.  The data points represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The grey solid line in (b) represents the solution ignoring viscous dissipation. The dashed lines in (b) and (c) mark the asymptotes $We \gg 1$ and $Oh \ll 1$, respectively.}
+\caption{Maximum impact force $F_{\text{max}}$ compensated with the inertial force scale $\rho V_0^2D_0^2$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ at different $Oh$ and (c) $Oh$ at different $We$.  The data points (only $\sim 4\%$ of them are shown) represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The grey solid line in (b) represents the solution ignoring viscous dissipation. The dashed lines in (b) and (c) mark the asymptotes $We \gg 1$ and $Oh \ll 1$, respectively.}
 \label{fig:2}
 \end{figure}
 
@@ -293,7 +293,8 @@ space, consistent with our numerical results, cf.\ figures \ref{fig:2} and \ref{
 	\centering
 	\includegraphics[width=\linewidth]{Figure3_v6-eps-converted-to.pdf}
 	\caption{
- Maximum spreading diameter $D_{\text{max}}$ normalized by the initial drop diameter $D_0$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ for various $Oh$, and (c) $Oh$ for different $We$. The data points represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The gray solid line in (b) represents the solution ignoring viscous dissipation.}
+ Maximum spreading diameter $D_{\text{max}}$ normalized by the initial drop diameter $D_0$ as a function of (a) $Oh$ and $We$ in a 3D plot, (b) $We$ for various $Oh$, and (c) $Oh$ for different $We$. The data points (only $\sim 4\%$ of them are shown)
+ represent the simulation results, while the surface in (a) and the lines in (b)--(c) depict the results of the proposed theoretical model. The gray solid line in (b) represents the solution ignoring viscous dissipation.}
 	\label{fig:3}
 \end{figure}
 
@@ -363,8 +364,8 @@ the maximum spreading at $t = \tau_s \gg \tau_\rho$ (fig.~\ref{fig:1}b).
  time derivative 
  of internal energy and surface energy at the inertial time scale are given by
 \begin{align}
-	\dot{K}_{\text{int}}^* &\equiv \dot{K}_{\text{int}}(t \approx \tau_\rho) \sim \rho V_0^3D_0^2,\,\,\text{and}\\
-	\dot{S}^* &\equiv \dot{S}(t \approx \tau_\rho) \sim \gamma D_0V_0,
+	\dot{K}_{\text{int}}^* &\equiv \dot{K}_{\text{int}}(t = \tau_\rho) \sim \rho V_0^3D_0^2,\,\,\text{and}\\
+	\dot{S}^* &\equiv \dot{S}(t = \tau_\rho) \sim \gamma D_0V_0,
 \end{align}
 respectively. We can then insert the energy and energy rate scales calculated above to simplify 
 eq.\ \eqref{eq:GlobalFmax} to 
@@ -433,7 +434,7 @@ For the general case
 of  eq.\ (\ref{eq:GlobalFmax_v2}),   
 we have to evaluate  the energy 
 dissipation rate
-$\varepsilon^* \equiv \varepsilon(t \approx \tau_\rho)$. 
+$\varepsilon^* \equiv \varepsilon(t = \tau_\rho)$. 
 During the impact phase, which takes place on
 the inertial time scale $\tau_\rho$,  the drop's south pole halts \cite{renardy2003pyramidal, Biance2006}, creating a velocity gradient near the surface across a boundary layer with thickness 
 $\lambda_i(t)$, observable in the black region of fig.~\ref{fig:1}(b). This gradient $V_0/\lambda_i(t)$ propagates to the north pole, building up a  viscous velocity gradient in 
@@ -476,18 +477,18 @@ is faster than the impact timescale $\tau_\rho$,
 i.e., when $\tau_\nu \ll \tau_\rho$, or, in other
 words, when the drop impact 
   Reynolds number   $Re \equiv V_0D_0/\nu \ll   1$, i.e., indeed only in the
-  viscous case. Then, to estimate the mean dissipation at time $t \approx \tau_\rho$, we must consider the two subphases of the impacting phase 
+  viscous case. Then, to estimate the mean dissipation at time $t = \tau_\rho$, we must consider the two subphases of the impacting phase 
   separately.  
 
 So,  in summary, the estimate for the dissipation  rate at
-the time $t \approx \tau_\rho$ 
+the time $t = \tau_\rho$ 
 of  the maximal force $F_\text{max}$ is 
 \begin{align}\label{fmax} 
-\varepsilon^* \equiv \varepsilon(t \approx \tau_\rho) \sim 
+\varepsilon^* \equiv \varepsilon(t = \tau_\rho) \sim 
 \begin{cases}
-    \overbrace{\frac{d}{dt}\left(\int_0^{\tau_\rho}\varepsilon_{i,\text{PB}}(t) dt\right)}^{\varepsilon_{i,\text{PB}}(t \approx \tau_\rho)}
+    \overbrace{\frac{d}{dt}\left(\int_0^{\tau_\rho}\varepsilon_{i,\text{PB}}(t) dt\right)}^{\varepsilon_{i,\text{PB}}(t = \tau_\rho)}
     & \text{for } Re > 1\text{, and} \\[4ex]
-    \underbrace{\frac{d}{dt}\left(\int_0^{\tau_\nu}\varepsilon_{i,\text{PB}}(t) dt\right)}_{\varepsilon_{i,\text{PB}}(t \approx \tau_\nu)} + \underbrace{\frac{d}{dt}\left(\int_{\tau_\nu}^{\tau_\rho}\varepsilon_{i,\infty}(t) dt\right)}_{\varepsilon_{i,\infty}(t \approx \tau_\rho) - \varepsilon_{i,\infty}(t \approx \tau_\nu)}
+    \underbrace{\frac{d}{dt}\left(\int_0^{\tau_\nu}\varepsilon_{i,\text{PB}}(t) dt\right)}_{\varepsilon_{i,\text{PB}}(t = \tau_\nu)} + \underbrace{\frac{d}{dt}\left(\int_{\tau_\nu}^{\tau_\rho}\varepsilon_{i,\infty}(t) dt\right)}_{\varepsilon_{i,\infty}(t = \tau_\rho) - \varepsilon_{i,\infty}(t = \tau_\nu)}
     & \text{for } Re < 1
 \end{cases}
 \end{align}
@@ -647,6 +648,7 @@ The numerical simulations were carried out on the national e-infrastructure of S
 \end{acknowledgments}
 
 \vspace{-5mm}
+
 \bibliographystyle{prsty_withtitle}
 \bibliography{refs}
 
